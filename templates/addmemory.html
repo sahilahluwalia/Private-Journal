@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<body>
+
+<h4>create new memory</h4>
+<form method="POST"  action="{% url 'add' %}">
+<div class='row' >
+    {% csrf_token %}
+    <textarea id='title' name='title'> </textarea>  
+<textarea id='textarea1' name='data'> </textarea>
+<label for='textarea1'>What happended today?</label>
+<button type='submit'>add</button>
+
+</div>
+</form>
+
+    <a href="{% url 'show' %}">home</a>
+</body>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dear Diary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Dear Diary
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+
+        <form method="POST" action="{% url 'add' %}">
+                {% csrf_token %}
+                <div class="field">
+                    <div class="control">
+                        {{ form.text }}
+                    </div>
+                </div>
+                <textarea id='title' name='title'> </textarea>  
+                <textarea id='textarea1' name='data'> </textarea>
+                <label for='textarea1'>What happended today?</label>
+                <button class="button is-link" type='Submit'>add</button>
+                <div class="field is-grouped is-grouped-right">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                </div>
+        </form>
+        </div>
+
+    </section>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html>

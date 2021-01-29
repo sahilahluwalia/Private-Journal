@@ -1,0 +1,17 @@
+<h1>login completed</h1>
+
+
+
+<a href={% url 'logout' %}>logout</a>
+
+<body>
+    <div class="container">
+<h4>Memories</h4>
+    </div>
+<a class=" " href="{% url 'add' %}">add memory</a>
+
+{% for mems in m %}
+<div>{{ mems.date }} </div>
+  <h5> {{ mems.content }}  </h5> 
+{% endfor %}
+</body>

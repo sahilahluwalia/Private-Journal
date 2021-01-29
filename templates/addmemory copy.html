@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<body>
+
+<h4>create new memory</h4>
+<form method="POST"  action="{% url 'add' %}">
+<div class='row' >
+    {% csrf_token %}
+    <textarea id='title' name='title'> </textarea>  
+<textarea id='textarea1' name='data'> </textarea>
+<label for='textarea1'>What happended today?</label>
+<button type='submit'>add</button>
+
+</div>
+</form>
+
+    <a href="{% url 'show' %}">home</a>
+</body>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from writings.views import show
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -14,7 +15,7 @@ def login(request):
         
         if user is not None:
             auth.login(request,user)
-            return render(request,'showjournal.html')
+            return redirect(show)
         else:
             return render(request, 'home.html',{'error':"Invalid Login Details"})
     else:
