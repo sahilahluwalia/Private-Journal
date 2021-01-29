@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from writings.views import show
 # Create your views here.
+def base(request):
+    return render(request,'base.html')
 def home(request):
     return render(request,'home.html')
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import memory
 from .models import memory
 from django.contrib.auth.models import User
@@ -23,6 +23,7 @@ def add(request):
         data=request.POST['data']
         new = memory(title=title,content=data,user=request.user)
         new.save()
-        return render(request,'addmemory.html')
+        return redirect('show')
+        #return render(request,'addmemory.html')
     else:
         return render(request,'addmemory.html')

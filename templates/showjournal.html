@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ user }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+      
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "base.css" %}">
 </head>
 
 <body>
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title">
-                    Hello {{ user }}!! How are you Feeling Today?
+                <h1 class="title is-2 is-spaced">
+                    Hello {{ user }} !! How are you Feeling Today?
                 </h1>
             </div>
         </div>
@@ -26,30 +28,37 @@
             <article class="media">
                 <div class="media-content">
                     <div class="content">
-                        <a href="{% url 'add' %}">How was your day?</a>
+                        <a href="{% url 'add' %}"> <button class="button is-medium is-fullwidth is-success">How was your
+                                day? I am interested tell me!</button></a>
+
+                        <br>
                     </div>
                 </div>
             </article>
-            
-            {% for mems in m %}
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p>
-                                <strong>{{ mems.title  }}</strong>
-                                <br><strong>{{ mems.date  }}</strong>
-                                <br> {{ mems.content }}
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            {% endfor %}
 
+            {% for mems in m %}
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                        <h1 class="title ">{{ mems.title  }}</h2>
+                            <p class="subtitle is-6">Timing : {{ mems.date  }}</p>
+                            <p> {{ mems.content }}</p>
+                           <p></p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+            <br>
+            <br>
+            <br>
+            <a href="{% url 'logout' %}"> <button class="button is-medium is-fullwidth is-danger">LOG OUT</button></a>
         </div>
+        
 
     </section>
-    <footer class="footer">
-    </footer>
+    
+
 </body>
 
 </html>
